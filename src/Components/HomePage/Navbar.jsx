@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import logo from '../../assets/image/main-logo.png'
 import { Contex } from '../ContexApi/Contex';
+import { FcLibrary } from 'react-icons/fc';
 
 
 const Navbar = () => {
@@ -26,6 +27,7 @@ const Navbar = () => {
                     <div>
                         <Link to="/" className="text-2xl font-bold ">
                             <div className="flex items-center">
+                                <FcLibrary className='mr-3 text-3xl'/>
                                 {/* <img src={logo} className='w-10' /> */}
                                 <h1>Academia Library</h1>
                             </div>

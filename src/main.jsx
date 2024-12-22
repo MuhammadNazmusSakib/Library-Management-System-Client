@@ -12,6 +12,11 @@ import Root from './Components/Root/Root';
 import Login from './Components/Firebase/SignIn&SignOut/Login';
 import Register from './Components/Firebase/SignIn&SignOut/Registar';
 import Home from './Components/HomePage/Home';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import AllBooks from './Components/PrivateRoute/PrivateRouteComponents/AllBooks';
+import AddBook from './Components/PrivateRoute/PrivateRouteComponents/AddBook';
+import BorrowedBooks from './Components/PrivateRoute/PrivateRouteComponents/BorrowedBooks';
+import UpdateBook from './Components/PrivateRoute/PrivateRouteComponents/UpdateBook';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +34,22 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Register />
+      },
+      {
+        path: "/all-books",
+        element: <PrivateRoute><AllBooks/></PrivateRoute>
+      },
+      {
+        path: "/add-book",
+        element: <PrivateRoute><AddBook/></PrivateRoute>
+      },
+      {
+        path: "/borrowed-books",
+        element: <PrivateRoute><BorrowedBooks/></PrivateRoute>
+      },
+      {
+        path: "/update-book/:id",
+        element: <PrivateRoute><UpdateBook/></PrivateRoute>
       },
     ]
   },
