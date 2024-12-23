@@ -17,6 +17,8 @@ import AllBooks from './Components/PrivateRoute/PrivateRouteComponents/AllBooks'
 import AddBook from './Components/PrivateRoute/PrivateRouteComponents/AddBook';
 import BorrowedBooks from './Components/PrivateRoute/PrivateRouteComponents/BorrowedBooks';
 import UpdateBook from './Components/PrivateRoute/PrivateRouteComponents/UpdateBook';
+import BooksByCategory from './Components/Routes/BooksByCategory';
+import BookDetails from './Components/PrivateRoute/PrivateRouteComponents/BookDetails';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,10 @@ const router = createBrowserRouter([
         element: <Register />
       },
       {
+        path: "/books/:category",
+        element: <BooksByCategory/>
+      },
+      {
         path: "/all-books",
         element: <PrivateRoute><AllBooks/></PrivateRoute>
       },
@@ -50,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "/update-book/:id",
         element: <PrivateRoute><UpdateBook/></PrivateRoute>
+      },
+      {
+        path: "/book/:id",
+        element: <PrivateRoute><BookDetails/></PrivateRoute>
       },
     ]
   },

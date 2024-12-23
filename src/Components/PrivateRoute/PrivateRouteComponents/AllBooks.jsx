@@ -24,7 +24,8 @@ const AllBooks = () => {
 
     // Filter books by availability
     const filterAvailableBooks = () => {
-        if (showAvailable) {
+        setShowAvailable(!showAvailable)
+        if (!showAvailable) {
             setFilteredBooks(books.filter(book => book.quantity > 0));
         } else {
             setFilteredBooks(books);
@@ -41,20 +42,21 @@ const AllBooks = () => {
             <h1 className="text-2xl font-semibold mb-4">All Books</h1>
             
             {/* Filter and View Toggle Section */}
-            <div className="mb-4 flex items-center justify-between">
+            <div className="mb-4 flex items-center justify-between py-10">
                 <div className="space-x-4">
                     <button 
-                        onClick={() => setShowAvailable(!showAvailable)} 
+                        // onClick={() => setShowAvailable(!showAvailable)} 
+                        onClick={() => filterAvailableBooks()}
                         className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
                     >
                         {showAvailable ? 'Show All Books' : 'Show Available Books'}
                     </button>
-                    <button 
+                    {/* <button 
                         onClick={() => filterAvailableBooks()} 
                         className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
                     >
                         Filter
-                    </button>
+                    </button> */}
                 </div>
                 <div>
                     <select 
@@ -72,7 +74,7 @@ const AllBooks = () => {
             {view === 'card' ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {filteredBooks.map((book) => (
-                        <div key={book._id} className="card shadow-lg rounded-lg overflow-hidden border border-gray-300">
+                        <div key={book._id} className="card shadow-lg rounded-lg overflow-hidden border border-gray-300 flex flex-col justify-between">
                             <img 
                                 src={book.image} 
                                 alt={book.name} 
