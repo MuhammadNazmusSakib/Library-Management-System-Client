@@ -9,7 +9,7 @@ const BookDetails = () => {
     const { id } = useParams(); // Get book ID from URL
     const navigate = useNavigate();
     const [book, setBook] = useState(null);
-    const [borrowedBooks, setBorrowedBooks] = useState(null)
+    const [borrowedBooks, setBorrowedBooks] = useState([])
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [returnDate, setReturnDate] = useState('');
     const { user } = useContext(Contex)
@@ -27,23 +27,33 @@ const BookDetails = () => {
     // fetch borrowed books based on user
     useEffect(() => {
         axios.get(`http://localhost:5000/allBorrowed/email/${user.email}`)
-        .then(res => setBorrowedBooks(res.data))
-        .catch(err => console.log('ERROR =>', err))
-    }, [user])
-    // console.log(borrowedBooks)
+            .then(res => setBorrowedBooks(res.data))
+            .catch(err => console.log('ERROR =>', err))
+    }, [user, borrowedBooks])
+    // console.log(borrowedBooks, id)
 
     // Handle borrow book submission
     const handleBorrow = () => {
         if (!returnDate) {
-            toast.error('Please select a return date.');
+            toast.error('Please select a return date.')
             return;
         }
-        const currentDate = new Date();
-        const selectedDate = new Date(returnDate);
+        const currentDate = new Date()
+        const selectedDate = new Date(returnDate)
         if (selectedDate <= currentDate) {
-            toast.error('Return date must be a future date.');
-            return;
+            toast.error('Return date must be a future date.')
+            return
         }
+        if (borrowedBooks.length > 2) {
+            toast.error('You can not borrow more than 3 books at the same time.')
+            return
+        }
+        const duplicate = borrowedBooks.some((borrow) => borrow.bookId === String(id));
+        if (duplicate) {
+            toast.error('You cannot borrow the same book twice at the same time.')
+            return
+        }
+
         // updating book quantity in server
         axios
             .put(`http://localhost:5000/allBooks/borrowed/${id}`)
