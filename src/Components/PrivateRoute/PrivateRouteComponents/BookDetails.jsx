@@ -4,6 +4,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import ReactStars from 'react-rating-stars-component';
 import { Contex } from '../../ContexApi/Contex';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const BookDetails = () => {
     const { id } = useParams(); // Get book ID from URL
@@ -13,10 +14,11 @@ const BookDetails = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [returnDate, setReturnDate] = useState('');
     const { user } = useContext(Contex)
+    const axiosSecure = useAxiosSecure()
     // Fetch book details
     useEffect(() => {
-        axios
-            .get(`http://localhost:5000/allBooks/${id}`)
+        axiosSecure
+            .get(`allBooks/${id}`)
             .then((response) => setBook(response.data))
             .catch((error) => {
                 console.error('Error fetching book details:', error);
@@ -26,7 +28,7 @@ const BookDetails = () => {
 
     // fetch borrowed books based on user
     useEffect(() => {
-        axios.get(`http://localhost:5000/allBorrowed/email/${user.email}`)
+        axiosSecure.get(`allBorrowed/email/${user.email}`)
             .then(res => setBorrowedBooks(res.data))
             .catch(err => console.log('ERROR =>', err))
     }, [user, borrowedBooks])
@@ -55,8 +57,8 @@ const BookDetails = () => {
         }
 
         // updating book quantity in server
-        axios
-            .put(`http://localhost:5000/allBooks/borrowed/${id}`)
+        axiosSecure
+            .put(`allBooks/borrowed/${id}`)
             .then(() => {
                 toast.success('Book borrowed successfully!');
                 setIsModalOpen(false);
@@ -65,8 +67,8 @@ const BookDetails = () => {
                     quantity: prevBook.quantity - 1,
                 }));
                 // storing borrowed book in server ------------------>>>>>>>>>>>>
-                axios
-                    .post(`http://localhost:5000/allBorrowed`, {
+                axiosSecure
+                    .post(`allBorrowed`, {
                         bookId: id,
                         email: user.email,
                         returnDate,

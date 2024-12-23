@@ -74,7 +74,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+      <div className="rounded-lg shadow-lg p-8 w-full max-w-md">
         {/* Title */}
         <h1 className="text-2xl font-bold text-center mb-6">
           Login
@@ -84,7 +84,7 @@ const Login = () => {
         <div className="w-full mb-4">
           <button
             onClick={handleGoogleLogin}
-            className="flex gap-4 w-full justify-center items-center bg-lime-500 text-white px-4 py-2 rounded-lg shadow hover:bg-lime-600 mr-2"
+            className="flex gap-4 w-full justify-center items-center bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 mr-2"
           >
             <img
               src="https://img.icons8.com/color/24/google-logo.png"
@@ -116,7 +116,7 @@ const Login = () => {
               type="email"
               id="email"
               name="email"
-              className="w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 "
               placeholder="Enter your email"
             />
           </div>
@@ -131,7 +131,7 @@ const Login = () => {
               type={!seePassword ? "password" : "text"}
               id="password"
               name="password"
-              className="w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 "
               placeholder="Enter your password"
             />
             <button type="button" onClick={handleSeePassword}
@@ -144,21 +144,21 @@ const Login = () => {
             <label className="flex items-center">
               <input
                 type="checkbox"
-                className="text-green-500 mr-2"
+                className="text-blue-500 mr-2"
               />
               <span className="text-sm text-gray-700">
                 Remember me on this computer
               </span>
             </label>
             <button
-              className="text-sm text-green-500 hover:underline"
+              className="text-sm text-blue-500 hover:underline"
             >
               Forgot your password?
             </button>
           </div>
           <button
             type="submit"
-            className="w-full bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600"
+            className="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600"
           >
             Log in
           </button>
@@ -168,7 +168,7 @@ const Login = () => {
         <p className="text-center text-sm text-gray-700 mt-4">
           Don't have an account yet?{" "}
           <button onClick={handleNavigateToRegister}>
-            <p className="text-green-500 font-medium hover:underline">
+            <p className="text-blue-500 font-medium hover:underline">
               Sign up. It's free and takes five seconds.
             </p>
           </button>

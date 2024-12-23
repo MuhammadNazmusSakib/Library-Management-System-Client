@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const AddBook = () => {
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure()
     const [book, setBook] = useState({
         image: '',
         name: '',
@@ -24,8 +26,8 @@ const AddBook = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log(book)
-        axios
-            .post('http://localhost:5000/allBooks', book)
+        axiosSecure
+            .post('allBooks', book)
             .then(() => {
                 toast.success('Book added successfully!');
                 navigate('/all-books'); // Redirect to the all books page after successful submission

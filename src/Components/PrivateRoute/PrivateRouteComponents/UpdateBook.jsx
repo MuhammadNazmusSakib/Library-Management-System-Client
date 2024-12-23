@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const UpdateBook = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure()
     const [book, setBook] = useState({
         image: '',
         name: '',
@@ -16,7 +18,7 @@ const UpdateBook = () => {
 
     // Fetch the book details
     useEffect(() => {
-        axios.get(`http://localhost:5000/allBooks/${id}`)
+        axiosSecure.get(`allBooks/${id}`)
             .then((response) => {
                 setBook(response.data);
             })
@@ -36,7 +38,7 @@ const UpdateBook = () => {
         e.preventDefault();
         // console.log(id, book)
 
-        axios.put(`http://localhost:5000/allBooks/${id}`, book)
+        axiosSecure.put(`allBooks/${id}`, book)
             .then(() => {
                 toast.success('Book updated successfully!');
                 navigate('/all-books');  // Redirect after update

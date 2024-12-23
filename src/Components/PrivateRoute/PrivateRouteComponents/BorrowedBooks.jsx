@@ -2,15 +2,17 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Contex } from '../../ContexApi/Contex';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const BorrowedBooks = () => {
   const { user } = useContext(Contex); // Get logged-in user's details
   const [borrowedBooks, setBorrowedBooks] = useState([]);
+  const axiosSecure = useAxiosSecure()
 
   // Fetch borrowed books for the logged-in user
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/allBorrowed/email/${user.email}`)
+    axiosSecure
+      .get(`allBorrowed/email/${user.email}`)
       .then((response) => setBorrowedBooks(response.data))
       .catch((error) => {
         console.error('Error fetching borrowed books:', error);
@@ -20,11 +22,11 @@ const BorrowedBooks = () => {
 
   // Handle return book
   const handleReturn = (bookId, id) => {
-    axios
-      .put(`http://localhost:5000/allBooks/returned/${bookId}`, { $inc: { quantity: 1 } }) // Increment quantity
+    axiosSecure
+      .put(`allBooks/returned/${bookId}`, { $inc: { quantity: 1 } }) // Increment quantity
       .then(() => {
-        axios
-          .delete(`http://localhost:5000/allBorrowed/${id}`) // Remove from borrowed list
+        axiosSecure
+          .delete(`allBorrowed/${id}`) // Remove from borrowed list
           .then(() => {
             toast.success('Book returned successfully!');
             setBorrowedBooks((prevBooks) =>

@@ -2,21 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+
 const BookCategories = () => {
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
+    
 
-    // Fetch categories from the allBooks API
+    // Fetch categories 
     useEffect(() => {
         axios
-            .get('http://localhost:5000/allBooks')
+            .get('http://localhost:5000/categories')
             .then((response) => {
                 const books = response.data;
-                // Extract unique categories
-                const uniqueCategories = [
-                    ...new Set(books.map((book) => book.category)),
-                ];
-                setCategories(uniqueCategories.slice(0, 4)); // Show only 4 categories
+                setCategories(books.slice(0, 4)); // Show only 4 categories
             })
             .catch((error) => {
                 console.error('Error fetching categories:', error);

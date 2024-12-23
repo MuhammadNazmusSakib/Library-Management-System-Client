@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Contex } from '../../ContexApi/Contex';
 import axios from 'axios';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const AllBooks = () => {
     const { user } = useContext(Contex);
@@ -9,11 +10,12 @@ const AllBooks = () => {
     const [filteredBooks, setFilteredBooks] = useState([]);
     const [view, setView] = useState('card');
     const [showAvailable, setShowAvailable] = useState(false);
+    const axiosSecure = useAxiosSecure()
 
     // Fetch all books
     useEffect(() => {
         if (user) {
-            axios.get('http://localhost:5000/allBooks')
+            axiosSecure.get('allBooks')
                 .then((response) => {
                     setBooks(response.data);
                     setFilteredBooks(response.data);
