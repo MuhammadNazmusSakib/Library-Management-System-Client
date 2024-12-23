@@ -9,6 +9,7 @@ const BookDetails = () => {
     const { id } = useParams(); // Get book ID from URL
     const navigate = useNavigate();
     const [book, setBook] = useState(null);
+    const [borrowedBooks, setBorrowedBooks] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [returnDate, setReturnDate] = useState('');
     const { user } = useContext(Contex)
@@ -23,6 +24,14 @@ const BookDetails = () => {
             });
     }, [id]);
 
+    // fetch borrowed books based on user
+    useEffect(() => {
+        axios.get(`http://localhost:5000/allBorrowed/email/${user.email}`)
+        .then(res => setBorrowedBooks(res.data))
+        .catch(err => console.log('ERROR =>', err))
+    }, [user])
+    // console.log(borrowedBooks)
+
     // Handle borrow book submission
     const handleBorrow = () => {
         if (!returnDate) {
@@ -35,7 +44,7 @@ const BookDetails = () => {
             toast.error('Return date must be a future date.');
             return;
         }
-
+        // updating book quantity in server
         axios
             .put(`http://localhost:5000/allBooks/borrowed/${id}`)
             .then(() => {
@@ -45,13 +54,15 @@ const BookDetails = () => {
                     ...prevBook,
                     quantity: prevBook.quantity - 1,
                 }));
-                // Working------------------------------->>>>>>>>>>>>
+                // storing borrowed book in server ------------------>>>>>>>>>>>>
                 axios
                     .post(`http://localhost:5000/allBorrowed`, {
                         bookId: id,
                         email: user.email,
                         returnDate,
-                        book
+                        image: book.image,
+                        name: book.name,
+                        category: book.category
                     })
                     .then(() => console.log('successfull store of borrowed book'))
                     .catch((error) => console.log('ERROR =>', error))
