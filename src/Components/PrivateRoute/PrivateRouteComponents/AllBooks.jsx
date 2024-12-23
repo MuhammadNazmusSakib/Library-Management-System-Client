@@ -39,15 +39,15 @@ const AllBooks = () => {
 
     return (
         <div className="container mx-auto p-4 py-10">
-            <h1 className="text-2xl font-semibold mb-4">All Books</h1>
+            <h1 className="text-2xl font-semibold text-center mb-4">All Books</h1>
             
             {/* Filter and View Toggle Section */}
-            <div className="mb-4 flex items-center justify-between py-10">
-                <div className="space-x-4">
+            <div className="mb-4 md:flex items-center justify-between py-10">
+                <div className="space-x-4 mb-4">
                     <button 
                         // onClick={() => setShowAvailable(!showAvailable)} 
                         onClick={() => filterAvailableBooks()}
-                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                        className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
                     >
                         {showAvailable ? 'Show All Books' : 'Show Available Books'}
                     </button>
@@ -62,7 +62,7 @@ const AllBooks = () => {
                     <select 
                         onChange={(e) => toggleView(e.target.value)} 
                         value={view} 
-                        className="px-4 py-2 border rounded-md"
+                        className="w-full px-4 py-2 border rounded-md"
                     >
                         <option value="card">Card View</option>
                         <option value="table">Table View</option>

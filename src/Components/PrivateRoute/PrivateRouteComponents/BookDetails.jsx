@@ -145,7 +145,7 @@ const BookDetails = () => {
                             <strong>User Email:</strong> {user.email}
                         </p>
                         <div className="form-control">
-                            <label className="label">Return Date</label>
+                            <label className="label"><strong>Return Date:</strong></label>
                             <input
                                 type="date"
                                 className="input input-bordered"
