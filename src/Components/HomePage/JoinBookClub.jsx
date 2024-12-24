@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const JoinBookClub = () => {
+const navigate = useNavigate()
   return (
     <section className="bg-gradient-to-r from-blue-50 to-blue-100 py-16 px-4 md:px-16">
       <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center gap-8">
@@ -29,7 +31,7 @@ const JoinBookClub = () => {
             and enjoy exclusive access to curated reading lists, author meetups, and
             much more. Let's turn pages together!
           </p>
-          <button className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">
+          <button onClick={() => navigate("/join-book-club")} className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">
             Join Now
           </button>
         </div>

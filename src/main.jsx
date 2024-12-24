@@ -21,6 +21,7 @@ import BooksByCategory from './Components/Routes/BooksByCategory';
 import BookDetails from './Components/PrivateRoute/PrivateRouteComponents/BookDetails';
 import ErrorPage from './ErrorPage/ErrorPage';
 import AboutLibrary from './Components/HomePage/AboutLibrary';
+import JoinPage from './Components/HomePage/JoinPage';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/about-library",
         element: <AboutLibrary/>
+      },
+      {
+        path: "/join-book-club",
+        element: <JoinPage/>
       },
       {
         path: "/all-books",
