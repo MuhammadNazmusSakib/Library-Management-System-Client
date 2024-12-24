@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import ReactStars from 'react-rating-stars-component';
+import useDynamicTitle from '../Hooks/useDynamicTitle';
 
 const BooksByCategory = () => {
+    useDynamicTitle("Books By Category | Academia Library")
+
     const { category } = useParams(); // Get category from URL
     const [books, setBooks] = useState([]);
     const navigate = useNavigate()
@@ -44,22 +47,23 @@ const BooksByCategory = () => {
                         <h2 className="text-xl font-semibold mb-2">
                             {book.name}
                         </h2>
-                        <p className="text-sm text-gray-600 mb-2">
-                            Author: {book.authorName}
+                        <p className="text-sm mb-2">
+                            <strong>Author: </strong>{book.author}
                         </p>
-                        <p className="text-sm text-gray-600 mb-2">
-                            Quantity: {book.quantity}
+                        <p className="text-sm mb-2">
+                            <strong>Quantity: </strong> {book.quantity}
                         </p>
-                        <p className="text-sm text-gray-600 mb-2">
-                            Rating:
-                        </p>
-                        <ReactStars
-                            count={5}
-                            value={Number(book.rating)}
-                            size={24}
-                            activeColor="#ffd700"
-                            edit={false}
-                        />
+                        <div className="flex items-center gap-3 mb-4">
+                            <strong>Rating:</strong>
+
+                            <ReactStars
+                                count={5}
+                                value={Number(book.rating)}
+                                size={24}
+                                activeColor="#ffd700"
+                                edit={false}
+                            />
+                        </div>
                         <button onClick={() => bookDetails(book._id)} className="btn btn-primary flex- w-full mt-4">
                             Details
                         </button>

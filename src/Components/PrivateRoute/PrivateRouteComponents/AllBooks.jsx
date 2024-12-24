@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import { Contex } from '../../ContexApi/Contex';
 import axios from 'axios';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useDynamicTitle from '../../Hooks/useDynamicTitle';
 
 const AllBooks = () => {
+    useDynamicTitle("All Books | Academia Library")
+
     const { user } = useContext(Contex);
     const [books, setBooks] = useState([]);
     const [filteredBooks, setFilteredBooks] = useState([]);

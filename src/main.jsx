@@ -19,11 +19,13 @@ import BorrowedBooks from './Components/PrivateRoute/PrivateRouteComponents/Borr
 import UpdateBook from './Components/PrivateRoute/PrivateRouteComponents/UpdateBook';
 import BooksByCategory from './Components/Routes/BooksByCategory';
 import BookDetails from './Components/PrivateRoute/PrivateRouteComponents/BookDetails';
+import ErrorPage from './ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root/>,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",

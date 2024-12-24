@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useDynamicTitle from '../../Hooks/useDynamicTitle';
 
 const AddBook = () => {
+    useDynamicTitle("Add Book | Academia Library")
+
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure()
     const [book, setBook] = useState({

@@ -122,7 +122,7 @@ const Navbar = () => {
                         {
                             user ? (
                                 <>
-                                    <li>
+                                    {/* <li>
                                         <Link to="/my-profile" className=" hover:text-blue-600">
                                             My Profile
                                         </Link>
@@ -131,7 +131,7 @@ const Navbar = () => {
                                         <Link to="/dashboard" className=" hover:text-blue-600">
                                             Dashboard
                                         </Link>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <button onClick={logOut} className="block  hover:text-blue-600">
                                             LogOut

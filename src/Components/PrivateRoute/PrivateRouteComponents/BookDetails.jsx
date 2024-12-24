@@ -5,8 +5,11 @@ import { toast } from 'react-toastify';
 import ReactStars from 'react-rating-stars-component';
 import { Contex } from '../../ContexApi/Contex';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useDynamicTitle from '../../Hooks/useDynamicTitle';
 
 const BookDetails = () => {
+    useDynamicTitle("Book Details | Academia Library")
+
     const { id } = useParams(); // Get book ID from URL
     const navigate = useNavigate();
     const [book, setBook] = useState(null);

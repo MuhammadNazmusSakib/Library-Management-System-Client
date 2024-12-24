@@ -3,8 +3,11 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Contex } from '../../ContexApi/Contex';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useDynamicTitle from '../../Hooks/useDynamicTitle';
 
 const BorrowedBooks = () => {
+  useDynamicTitle("Borrowed Books | Academia Library")
+
   const { user } = useContext(Contex); // Get logged-in user's details
   const [borrowedBooks, setBorrowedBooks] = useState([]);
   const axiosSecure = useAxiosSecure()
