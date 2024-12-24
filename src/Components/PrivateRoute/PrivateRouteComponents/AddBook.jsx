@@ -109,10 +109,10 @@ const AddBook = () => {
                             required
                         >
                             <option value="Novel">Novel</option>
-                            <option value="Thriller">Thriller</option>
+                            <option value="Business">Business</option>
                             <option value="History">History</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Social Sciences">Social Sciences</option>
+                            <option value="Science">Science</option>
                         </select>
                     </div>
 

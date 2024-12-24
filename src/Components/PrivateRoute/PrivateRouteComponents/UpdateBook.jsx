@@ -39,7 +39,7 @@ const UpdateBook = () => {
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(id, book)
+       // console.log(id, book)
 
         axiosSecure.put(`allBooks/${id}`, book)
             .then(() => {
@@ -85,7 +85,7 @@ const UpdateBook = () => {
                         <input
                             type="text"
                             name="author"
-                            value={book.authorName}
+                            value={book.author}
                             onChange={handleChange}
                             required
                             className="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -102,10 +102,10 @@ const UpdateBook = () => {
                             className="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
                             <option value="Novel">Novel</option>
-                            <option value="Thriller">Thriller</option>
+                            <option value="Business">Business</option>
                             <option value="History">History</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Social Science">Social Science</option>
+                            <option value="Science">Science</option>
                         </select>
                     </div>
 

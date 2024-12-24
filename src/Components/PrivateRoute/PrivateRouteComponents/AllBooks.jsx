@@ -83,12 +83,12 @@ const AllBooks = () => {
                             <img 
                                 src={book.image} 
                                 alt={book.name} 
-                                className="w-full h-48 object-cover" 
+                                className="w-full h-96 object-cover" 
                             />
                             <div className="p-4">
                                 <h2 className="text-xl font-semibold">{book.name}</h2>
                                 <p className="text-sm text-gray-600">{book.author}</p>
-                                <p className="text-sm text-gray-500">{book.category}</p>
+                                <p className="text-sm text-gray-800">{book.category}</p>
                                 <p className="text-sm text-yellow-500">Rating: {book.rating}</p>
                                 <p className="text-sm">Quantity: {book.quantity}</p>
                                 <div className="mt-4">

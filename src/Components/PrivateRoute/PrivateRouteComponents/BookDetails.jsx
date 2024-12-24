@@ -101,7 +101,7 @@ const BookDetails = () => {
             <img
                 src={book.image}
                 alt={book.name}
-                className="w-full h-64 object-cover rounded mb-6"
+                className="w-full h-full object-cover rounded mb-6"
             />
             <h1 className="text-3xl font-semibold mb-6">{book.name}</h1>
             <p className="mb-4">

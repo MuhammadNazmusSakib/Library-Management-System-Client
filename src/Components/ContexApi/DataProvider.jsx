@@ -21,7 +21,7 @@ const DataProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
       // setLoading(false)
-      // jwt
+      // json web token
       if(currentUser?.email) {
         const user = {email: currentUser.email}
         axios.post(`http://localhost:5000/jwt`, user, {withCredentials: true})

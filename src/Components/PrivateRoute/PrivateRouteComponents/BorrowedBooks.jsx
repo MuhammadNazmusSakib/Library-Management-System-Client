@@ -61,7 +61,7 @@ const BorrowedBooks = () => {
               <img
                 src={book.image}
                 alt={book.name}
-                className="w-full h-48 object-cover rounded mb-4"
+                className="w-full h-96 object-cover rounded mb-4"
               />
               <h2 className="text-xl font-semibold mb-2">{book.name}</h2>
               <p className="mb-2">

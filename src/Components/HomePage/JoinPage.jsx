@@ -9,7 +9,7 @@ const JoinPage = () => {
 
     const onSubmit = (data) => {
         // Handle form submission here
-        console.log(data);
+        // console.log(data);
         setIsModalOpen(true); // Open the modal after submission
     };
 

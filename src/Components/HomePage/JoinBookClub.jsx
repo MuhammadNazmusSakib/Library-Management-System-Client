@@ -16,7 +16,7 @@ const navigate = useNavigate()
         </div>
 
         {/* Right: Content */}
-        <div className="w-full lg:w-1/2 text-center md:text-left">
+        <div className="w-full lg:w-1/2 md:text-left">
           <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
             Join Our Book Club
           </h2>
