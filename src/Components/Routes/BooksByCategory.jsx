@@ -51,9 +51,12 @@ const BooksByCategory = () => {
                             <strong>Author: </strong>{book.author}
                         </p>
                         <p className="text-sm mb-2">
+                            <strong>Category: </strong> {book.category}
+                        </p>
+                        <p className="text-sm mb-2">
                             <strong>Quantity: </strong> {book.quantity}
                         </p>
-                        <div className="flex items-center gap-3 mb-4">
+                        <div className="flex items-center gap-3 mb-2">
                             <strong>Rating:</strong>
 
                             <ReactStars

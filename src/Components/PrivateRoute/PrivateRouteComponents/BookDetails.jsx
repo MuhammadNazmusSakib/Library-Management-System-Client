@@ -140,7 +140,7 @@ const BookDetails = () => {
                 <div className="modal modal-open">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Borrow Book</h3>
-                        <p className="py-4">
+                        {/* <p className="py-4">
                             <strong>Book Name:</strong> {book.name}
                         </p>
                         <p>
@@ -148,7 +148,27 @@ const BookDetails = () => {
                         </p>
                         <p>
                             <strong>User Email:</strong> {user.email}
-                        </p>
+                        </p> */}
+
+                        <div className="mb-4">
+                            <label className="block text-gray-800">Name:</label>
+                            <input
+                                type="text"
+                                value={user.displayName}
+                                disabled
+                                className="w-full px-4 py-2 border rounded"
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-gray-800">Email:</label>
+                            <input
+                                type="email"
+                                value={user.email}
+                                disabled
+                                className="w-full px-4 py-2 border rounded"
+                            />
+                        </div>
+
                         <div className="form-control">
                             <label className="label"><strong>Return Date:</strong></label>
                             <input
