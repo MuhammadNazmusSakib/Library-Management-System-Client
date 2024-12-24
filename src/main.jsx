@@ -20,6 +20,7 @@ import UpdateBook from './Components/PrivateRoute/PrivateRouteComponents/UpdateB
 import BooksByCategory from './Components/Routes/BooksByCategory';
 import BookDetails from './Components/PrivateRoute/PrivateRouteComponents/BookDetails';
 import ErrorPage from './ErrorPage/ErrorPage';
+import AboutLibrary from './Components/HomePage/AboutLibrary';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/books/:category",
         element: <BooksByCategory/>
+      },
+      {
+        path: "/about-library",
+        element: <AboutLibrary/>
       },
       {
         path: "/all-books",

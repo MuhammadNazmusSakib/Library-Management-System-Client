@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
+  const navigate = useNavigate()
   return (
     <section className="mt-12 px-6 py-12 bg-gray-100 rounded shadow-md">
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
@@ -23,7 +25,7 @@ const AboutUs = () => {
             or simply enjoy the quiet ambiance, our library is the perfect place
             for you. Join us in our mission to promote knowledge and discovery!
           </p>
-          <button className="px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-500 transition">
+          <button onClick={() => navigate("/about-library")} className="px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-500 transition">
             Learn More
           </button>
         </motion.div>
