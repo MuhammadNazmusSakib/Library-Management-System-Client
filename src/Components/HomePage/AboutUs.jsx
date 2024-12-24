@@ -6,7 +6,7 @@ const AboutUs = () => {
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Left: Description */}
         <motion.div
-          className="space-y-6"
+          className="space-y-6 sm:ml-6"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -38,7 +38,7 @@ const AboutUs = () => {
           <img
             src="https://i.ibb.co.com/G0pSMcF/aboutUs.jpg"
             alt="Library Image"
-            className="w-full max-w-md rounded shadow-lg"
+            className="w-full md:max-w-2xl lg:max-w-lg rounded shadow-lg"
           />
         </motion.div>
       </div>
