@@ -17,34 +17,40 @@ const DataProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, currentUser => {
-      setUser(currentUser)
-      // setLoading(false)
-      // json web token
-      if(currentUser?.email) {
-        const user = {email: currentUser.email}
-        axios.post(`https://library-management-system-server-alpha.vercel.app/jwt`, user, {withCredentials: true})
-        .then(res => {
-          // console.log(res.data)
-          setLoading(false)
-        })
-      }
-      else {
-        axios.post(`https://library-management-system-server-alpha.vercel.app/logout`, {}, {
-          withCredentials: true
-        })
-        .then(res => {
-          // console.log('logout', res.data)
-          setLoading(false)
-        })
-      }
-
-    })
-    return () => {
-      unSubscribe()
+  // Helper function: Set JWT and user state
+  const setJWTToken = async (email) => {
+    try {
+      const res = await axios.post(
+        `https://library-management-system-server-alpha.vercel.app/jwt`,
+        { email },
+        { withCredentials: true }
+      );
+      // console.log('JWT set successfully:', res.data);
+    } catch (err) {
+      // console.error('Error setting JWT:', err);
+    } finally {
+      setLoading(false);
     }
-  }, [])
+  };
+
+  // Handle authentication state change
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser?.email) {
+        setUser(currentUser); // Set user immediately for UI purposes
+        await setJWTToken(currentUser.email); // Set JWT token
+        setLoading(false); // Set loading to false after JWT is set
+      } else {
+        setUser(null);
+        setLoading(false);
+      }
+    });
+
+    return () => {
+      unSubscribe();
+    };
+  }, []);
+
 
   // update user profile
   const updateUserProfile = (updateData) => {

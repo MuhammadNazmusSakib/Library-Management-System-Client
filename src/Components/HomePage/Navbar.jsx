@@ -48,7 +48,7 @@ const Navbar = () => {
                         {
                             user ? (
                                 <>
-                                    <Link to='my-profile'>
+                                    {/* <Link to='my-profile'> */}
                                         <div className="relative group">
                                             <img
                                                 src={user?.photoURL}
@@ -60,7 +60,7 @@ const Navbar = () => {
                                                 {user?.displayName}
                                             </div>
                                         </div>
-                                    </Link>
+                                    {/* </Link> */}
                                     <button onClick={logOut} className="btn text-sm font-medium bg-red-500 text-white ml-4 py-1 px-4 rounded-md hover:bg-red-600">
                                         LogOut
                                     </button>

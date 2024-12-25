@@ -13,6 +13,7 @@ const AllBooks = () => {
     const [filteredBooks, setFilteredBooks] = useState([]);
     const [view, setView] = useState('card');
     const [showAvailable, setShowAvailable] = useState(false);
+    const [loading, setLoading] = useState(true)
     const axiosSecure = useAxiosSecure()
 
     // Fetch all books
@@ -22,6 +23,7 @@ const AllBooks = () => {
                 .then((response) => {
                     setBooks(response.data);
                     setFilteredBooks(response.data);
+                    setLoading(false)
                 })
                 // .catch((error) => console.error('Failed to load books.'));
         }
@@ -41,6 +43,14 @@ const AllBooks = () => {
     const toggleView = (viewType) => {
         setView(viewType);
     };
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-screen bg-gray-100">
+                <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+            </div>
+        )
+    }
 
     return (
         <div className="container mx-auto p-4 py-10">

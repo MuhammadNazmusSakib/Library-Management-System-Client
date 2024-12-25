@@ -10,6 +10,7 @@ const BooksByCategory = () => {
 
     const { category } = useParams(); // Get category from URL
     const [books, setBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate()
 
     // Fetch books by category
@@ -18,15 +19,24 @@ const BooksByCategory = () => {
             .get(`https://library-management-system-server-alpha.vercel.app/allBooks/category/${category}`)
             .then((response) => {
                 setBooks(response.data);
+                setLoading(false)
             })
-            // .catch((error) => {
-            //     console.error('Error fetching books:', error);
-            // });
+        // .catch((error) => {
+        //     console.error('Error fetching books:', error);
+        // });
     }, [category]);
     // console.log(books)
 
     const bookDetails = (id) => {
         navigate(`/book/${id}`)
+    }
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-screen bg-gray-100">
+                <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+            </div>
+        )
     }
 
     return (

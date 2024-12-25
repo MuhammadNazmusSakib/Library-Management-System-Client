@@ -10,6 +10,7 @@ const BorrowedBooks = () => {
 
   const { user } = useContext(Contex); // Get logged-in user's details
   const [borrowedBooks, setBorrowedBooks] = useState([]);
+  const [loading, setLoading] = useState(true)
   const axiosSecure = useAxiosSecure()
 
   // Fetch borrowed books for the logged-in user
@@ -17,10 +18,11 @@ const BorrowedBooks = () => {
     axiosSecure
       .get(`allBorrowed/email/${user.email}`)
       .then((response) => setBorrowedBooks(response.data))
-      // .catch((error) => {
-      //   console.error('Error fetching borrowed books:', error);
-      //   toast.error('Failed to load borrowed books.');
-      // });
+    setLoading(false)
+    // .catch((error) => {
+    //   console.error('Error fetching borrowed books:', error);
+    //   toast.error('Failed to load borrowed books.');
+    // });
   }, [user.email]);
 
   // Handle return book
@@ -36,16 +38,24 @@ const BorrowedBooks = () => {
               prevBooks.filter((book) => book.bookId !== bookId)
             );
           })
-          // .catch((error) => {
-          //   console.error('Error removing book:', error);
-          //   toast.error('Failed to return book.');
-          // });
+        // .catch((error) => {
+        //   console.error('Error removing book:', error);
+        //   toast.error('Failed to return book.');
+        // });
       })
-      // .catch((error) => {
-      //   console.error('Error updating book quantity:', error);
-      //   toast.error('Failed to update book quantity.');
-      // });
+    // .catch((error) => {
+    //   console.error('Error updating book quantity:', error);
+    //   toast.error('Failed to update book quantity.');
+    // });
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+      </div>
+    )
+  }
 
   return (
     <div className="max-w-6xl mx-auto p-6">
