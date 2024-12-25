@@ -11,7 +11,7 @@ const BookCategories = () => {
     // Fetch categories 
     useEffect(() => {
         axios
-            .get('http://localhost:5000/categories')
+            .get('https://library-management-system-server-alpha.vercel.app/categories')
             .then((response) => {
                 const books = response.data;
                 setCategories(books.slice(0, 4)); // Show only 4 categories

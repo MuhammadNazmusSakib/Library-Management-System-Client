@@ -4,7 +4,7 @@
 The Library Management System is a web-based application designed for a well-renowned school to efficiently manage its library operations. This system offers seamless book addition, categorization, and updating capabilities while ensuring accurate tracking of borrowed and returned books. The platform provides a user-friendly interface, facilitating smooth operations and easy access to the library's extensive resources.
 
 ## Live URL
-[Academia Library Live](https://your-live-url.com)
+[Academia Library Live](https://library-management-syste-133af.web.app/)
 
 ## Key Features
 - **Full CRUD Operations**: 

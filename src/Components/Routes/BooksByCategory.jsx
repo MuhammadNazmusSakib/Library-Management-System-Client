@@ -15,7 +15,7 @@ const BooksByCategory = () => {
     // Fetch books by category
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/allBooks/category/${category}`)
+            .get(`https://library-management-system-server-alpha.vercel.app/allBooks/category/${category}`)
             .then((response) => {
                 setBooks(response.data);
             })
