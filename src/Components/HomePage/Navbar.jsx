@@ -140,7 +140,7 @@ const Navbar = () => {
                                 </>
                             ) : (
                                 <li>
-                                    <Link to="/login" className="block text-gray-600 hover:text-blue-600">
+                                    <Link to="/login" className="block hover:text-blue-600">
                                         Login
                                     </Link>
                                 </li>
