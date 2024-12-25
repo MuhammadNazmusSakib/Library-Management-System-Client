@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import ReactStars from 'react-rating-stars-component';
+// import ReactStars from 'react-rating-stars-component';
 import { Contex } from '../../ContexApi/Contex';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useDynamicTitle from '../../Hooks/useDynamicTitle';
+import RatingStars from '../../Hooks/RatingStars';
 
 const BookDetails = () => {
     useDynamicTitle("Book Details | Academia Library")
@@ -114,14 +115,15 @@ const BookDetails = () => {
             </p>
             <div className="flex items-center gap-3 mb-4">
                 <strong>Rating:</strong>
+                <RatingStars value={Number(book.rating)} />
 
-                <ReactStars
+                {/* <ReactStars
                     count={5}
                     value={Number(book.rating)}
                     size={24}
                     activeColor="#ffd700"
                     edit={false}
-                />
+                /> */}
             </div>
             <p className="mb-4">
                 <strong>Description:</strong> {book.shortDescription}

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import ReactStars from 'react-rating-stars-component';
+// import ReactStars from 'react-rating-stars-component';
 import useDynamicTitle from '../Hooks/useDynamicTitle';
+import RatingStars from '../Hooks/RatingStars';
 
 const BooksByCategory = () => {
     useDynamicTitle("Books By Category | Academia Library")
@@ -58,14 +59,15 @@ const BooksByCategory = () => {
                         </p>
                         <div className="flex items-center gap-3 mb-2">
                             <strong>Rating:</strong>
+                            <RatingStars value={Number(book.rating)} />
 
-                            <ReactStars
+                            {/* <ReactStars
                                 count={5}
                                 value={Number(book.rating)}
                                 size={24}
                                 activeColor="#ffd700"
                                 edit={false}
-                            />
+                            /> */}
                         </div>
                         <button onClick={() => bookDetails(book._id)} className="btn btn-primary flex- w-full mt-4">
                             Details
