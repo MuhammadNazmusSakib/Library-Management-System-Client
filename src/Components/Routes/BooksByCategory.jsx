@@ -18,9 +18,9 @@ const BooksByCategory = () => {
             .then((response) => {
                 setBooks(response.data);
             })
-            .catch((error) => {
-                console.error('Error fetching books:', error);
-            });
+            // .catch((error) => {
+            //     console.error('Error fetching books:', error);
+            // });
     }, [category]);
     // console.log(books)
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import ReactStars from 'react-rating-stars-component';
 import { Contex } from '../../ContexApi/Contex';
@@ -23,17 +22,17 @@ const BookDetails = () => {
         axiosSecure
             .get(`allBooks/${id}`)
             .then((response) => setBook(response.data))
-            .catch((error) => {
-                console.error('Error fetching book details:', error);
-                toast.error('Failed to fetch book details.');
-            });
+            // .catch((error) => {
+            //     console.error('Error fetching book details:', error);
+            //     toast.error('Failed to fetch book details.');
+            // });
     }, [id]);
 
     // fetch borrowed books based on user
     useEffect(() => {
         axiosSecure.get(`allBorrowed/email/${user.email}`)
             .then(res => setBorrowedBooks(res.data))
-            .catch(err => console.log('ERROR =>', err))
+            // .catch(err => console.log('ERROR =>', err))
     }, [user, borrowedBooks])
     // console.log(borrowedBooks, id)
 
@@ -69,7 +68,7 @@ const BookDetails = () => {
                     ...prevBook,
                     quantity: prevBook.quantity - 1,
                 }));
-                // storing borrowed book in server ------------------>>>>>>>>>>>>
+                // storing borrowed book in server 
                 axiosSecure
                     .post(`allBorrowed`, {
                         bookId: id,
@@ -79,13 +78,13 @@ const BookDetails = () => {
                         name: book.name,
                         category: book.category
                     })
-                    .then(() => console.log('successfull store of borrowed book'))
-                    .catch((error) => console.log('ERROR =>', error))
+                    // .then(() => console.log('successfull store of borrowed book'))
+                    // .catch((error) => console.log('ERROR =>', error))
             })
-            .catch((error) => {
-                console.error('Error borrowing book:', error);
-                toast.error('Failed to borrow book.');
-            });
+            // .catch((error) => {
+            //     console.error('Error borrowing book:', error);
+            //     toast.error('Failed to borrow book.');
+            // });
     };
 
     if (!book) {

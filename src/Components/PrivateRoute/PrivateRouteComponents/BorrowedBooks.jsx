@@ -17,10 +17,10 @@ const BorrowedBooks = () => {
     axiosSecure
       .get(`allBorrowed/email/${user.email}`)
       .then((response) => setBorrowedBooks(response.data))
-      .catch((error) => {
-        console.error('Error fetching borrowed books:', error);
-        toast.error('Failed to load borrowed books.');
-      });
+      // .catch((error) => {
+      //   console.error('Error fetching borrowed books:', error);
+      //   toast.error('Failed to load borrowed books.');
+      // });
   }, [user.email]);
 
   // Handle return book
@@ -36,15 +36,15 @@ const BorrowedBooks = () => {
               prevBooks.filter((book) => book.bookId !== bookId)
             );
           })
-          .catch((error) => {
-            console.error('Error removing book:', error);
-            toast.error('Failed to return book.');
-          });
+          // .catch((error) => {
+          //   console.error('Error removing book:', error);
+          //   toast.error('Failed to return book.');
+          // });
       })
-      .catch((error) => {
-        console.error('Error updating book quantity:', error);
-        toast.error('Failed to update book quantity.');
-      });
+      // .catch((error) => {
+      //   console.error('Error updating book quantity:', error);
+      //   toast.error('Failed to update book quantity.');
+      // });
   };
 
   return (

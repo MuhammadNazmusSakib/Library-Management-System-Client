@@ -16,9 +16,9 @@ const BookCategories = () => {
                 const books = response.data;
                 setCategories(books.slice(0, 4)); // Show only 4 categories
             })
-            .catch((error) => {
-                console.error('Error fetching categories:', error);
-            });
+            // .catch((error) => {
+            //     console.error('Error fetching categories:', error);
+            // });
     }, []);
 
     // Navigate to the filtered books page

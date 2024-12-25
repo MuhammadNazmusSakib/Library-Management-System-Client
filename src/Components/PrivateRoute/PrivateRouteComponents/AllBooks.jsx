@@ -23,7 +23,7 @@ const AllBooks = () => {
                     setBooks(response.data);
                     setFilteredBooks(response.data);
                 })
-                .catch((error) => console.error('Failed to load books.'));
+                // .catch((error) => console.error('Failed to load books.'));
         }
     }, [user]);
 
