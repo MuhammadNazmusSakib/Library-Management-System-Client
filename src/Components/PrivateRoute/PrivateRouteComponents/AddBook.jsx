@@ -108,12 +108,16 @@ const AddBook = () => {
                             className="select select-bordered w-full"
                             required
                         >
+                            <option value="" disabled>Select a category</option>
                             <option value="Novel">Novel</option>
                             <option value="Business">Business</option>
                             <option value="History">History</option>
                             <option value="Social Sciences">Social Sciences</option>
                             <option value="Science">Science</option>
                         </select>
+                        {/* {book.category === "" && (
+                            <span className="text-red-500 text-sm mt-2">Category is Required.</span>
+                        )} */}
                     </div>
 
                     {/* Short Description */}

@@ -41,8 +41,14 @@ const DataProvider = ({ children }) => {
         await setJWTToken(currentUser.email); // Set JWT token
         setLoading(false); // Set loading to false after JWT is set
       } else {
-        setUser(null);
-        setLoading(false);
+        await axios.post(
+          `https://library-management-system-server-alpha.vercel.app/logout`,
+          {},
+          { withCredentials: true }
+        ).then(() => {
+          setUser(null);
+          setLoading(false);
+        })
       }
     });
 
