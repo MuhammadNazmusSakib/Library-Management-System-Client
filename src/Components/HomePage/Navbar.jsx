@@ -27,7 +27,7 @@ const Navbar = () => {
                     <div>
                         <Link to="/" className="text-2xl font-bold ">
                             <div className="flex items-center">
-                                <FcLibrary className='mr-3 text-3xl'/>
+                                <FcLibrary className='mr-3 text-3xl' />
                                 {/* <img src={logo} className='w-10' /> */}
                                 <h1>Academia Library</h1>
                             </div>
@@ -37,9 +37,9 @@ const Navbar = () => {
                     {/* Navbar Center: Links for larger screens */}
                     <nav className="hidden lg:flex space-x-6">
                         <Link to="/" className="font-semi-bold hover:text-blue-600">Home</Link>
-                        <Link to="/all-books" className="font-semi-bold hover:text-blue-600">All Books</Link>
-                        <Link to="/add-book" className="font-semi-bold hover:text-blue-600">Add Book</Link>
-                        <Link to="/borrowed-books" className="font-semi-bold hover:text-blue-600">Borrowed Books</Link>
+                        <Link to="/join-book-club" className="font-semi-bold hover:text-blue-600">Book Club</Link>
+                        <Link to="/about-library" className="font-semi-bold hover:text-blue-600">About</Link>
+                        <Link to="/contact" className="font-semi-bold hover:text-blue-600">Contact</Link>
                     </nav>
 
 
@@ -71,7 +71,7 @@ const Navbar = () => {
                                         Login
                                     </Link>
                                     <Link to="/signup" className="btn bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                                    Register
+                                        Register
                                     </Link>
                                 </>
                             )
@@ -111,27 +111,28 @@ const Navbar = () => {
                             <Link to="/" className="block  hover:text-blue-600">Home</Link>
                         </li>
                         <li>
-                            <Link to="/my-profile/all-books" className="block  hover:text-blue-600">All Books</Link>
+                            <Link to="/about-library" className="font-semi-bold hover:text-blue-600">About</Link>
+
                         </li>
                         <li>
-                            <Link to="/my-profile/add-book" className="block  hover:text-blue-600">Add Book</Link>
+                            <Link to="/contact" className="font-semi-bold hover:text-blue-600">Contact</Link>
                         </li>
-                        <li>
-                            <Link to="/my-profile/borrowed-books" className="block  hover:text-blue-600">Borrowed Books</Link>
-                        </li>
+
                         {
                             user ? (
                                 <>
-                                    {/* <li>
-                                        <Link to="/my-profile" className=" hover:text-blue-600">
-                                            My Profile
-                                        </Link>
+                                    <li>
+                                        <Link to="/my-profile/all-books" className="block  hover:text-blue-600">All Books</Link>
                                     </li>
                                     <li>
-                                        <Link to="/dashboard" className=" hover:text-blue-600">
-                                            Dashboard
-                                        </Link>
-                                    </li> */}
+                                        <Link to="/my-profile/add-book" className="block  hover:text-blue-600">Add Book</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/my-profile/update-books" className="block  hover:text-blue-600">Update Books</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/my-profile/borrowed-books" className="block  hover:text-blue-600">Borrowed Books</Link>
+                                    </li>
                                     <li>
                                         <button onClick={logOut} className="block  hover:text-blue-600">
                                             LogOut

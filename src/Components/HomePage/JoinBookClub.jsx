@@ -31,7 +31,7 @@ const navigate = useNavigate()
             and enjoy exclusive access to curated reading lists, author meetups, and
             much more. Let's turn pages together!
           </p>
-          <button onClick={() => navigate("/join-book-club")} className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">
+          <button onClick={() => navigate("/join-book-club")} className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">
             Join Now
           </button>
         </div>

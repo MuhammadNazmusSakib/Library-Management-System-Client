@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 const JoinPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [isModalOpen, setIsModalOpen] = useState(false);
-   
+
 
     const onSubmit = (data) => {
         // Handle form submission here
@@ -23,8 +23,11 @@ const JoinPage = () => {
                 {/* Description and Image */}
                 <div className="w-full lg:w-2/3 text-center">
                     <h2 className="text-4xl font-extrabold text-gray-800 mb-4">Welcome to Our Book Club!</h2>
-                    <p className="text-lg text-gray-600 mb-6">
-                        We're excited to have you join us in exploring the world of books! Please fill out the form below, and we'll get in touch with you soon.
+                    <p className="text-left text-lg text-gray-600 mb-6">
+                        Immerse yourself in a world of literary wonders. Our book club offers a unique space to explore, discuss, and celebrate stories that inspire and captivate. Whether you're a voracious reader or just starting out, there's always a place for you here.
+                    </p>
+                    <p className="text-left text-lg text-gray-600 mb-6">
+                        Connect with fellow book lovers, participate in engaging discussions, and enjoy exclusive access to curated reading lists, author meetups, and much more. Let's turn pages together!
                     </p>
                     <img
                         src="https://i.ibb.co.com/k095ccH/book-club.jpg"
@@ -36,6 +39,9 @@ const JoinPage = () => {
                 {/* Form */}
                 <div className="w-full lg:w-2/3 text-center">
                     <h3 className="text-3xl font-bold text-gray-800 mb-4">Join the Club</h3>
+                    <p className="text-lg text-gray-600 mb-6">
+                        We're excited to have you join us in exploring the world of books! Please fill out the form below, and we'll get in touch with you soon.
+                    </p>
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                         <div>
                             <input

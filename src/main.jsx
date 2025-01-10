@@ -23,6 +23,9 @@ import ErrorPage from './ErrorPage/ErrorPage';
 import AboutLibrary from './Components/HomePage/AboutLibrary';
 import JoinPage from './Components/HomePage/JoinPage';
 import Profile from './Components/PrivateRoute/Profile/Profile';
+import UpdateBooks from './Components/PrivateRoute/PrivateRouteComponents/UpdateBooks';
+import Contact from './Components/Routes/Contact';
+import DiscoverProgramsList from './Components/Routes/DiscoverProgramsList';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +58,14 @@ const router = createBrowserRouter([
         element: <JoinPage/>
       },
       {
+        path: "/contact",
+        element: <Contact/>
+      },
+      {
+        path: "/discover-programs",
+        element: <DiscoverProgramsList/>
+      },
+      {
         path: "my-profile",
         element: <PrivateRoute><Profile/></PrivateRoute>,
         children: [
@@ -65,6 +76,10 @@ const router = createBrowserRouter([
           {
             path: "add-book",
             element: <AddBook />,
+          },
+          {
+            path: "update-books",
+            element: <UpdateBooks/>
           },
           {
             path: "borrowed-books",

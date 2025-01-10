@@ -24,6 +24,14 @@ const ProfileBar = () => {
           Add Books
         </Link>
         <Link
+          to="/my-profile/update-books"
+          className={`${
+            location.pathname === '/my-profile/update-books' ? 'bg-gray-300 text-black' : ''
+          } font-semi-bold p-2 hover:bg-slate-200 hover:text-blue-600`}
+        >
+          Update Books
+        </Link>
+        <Link
           to="/my-profile/borrowed-books"
           className={`${
             location.pathname === '/my-profile/borrowed-books' ? 'bg-gray-300 text-black' : ''

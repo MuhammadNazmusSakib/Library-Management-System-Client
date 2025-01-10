@@ -44,7 +44,7 @@ const UpdateBook = () => {
         axiosSecure.put(`allBooks/${id}`, book)
             .then(() => {
                 toast.success('Book updated successfully!');
-                navigate('/my-profile/all-books');  // Redirect after update
+                navigate('/my-profile/update-books');  // Redirect after update
             })
             .catch(() => {
                 toast.error('Failed to update book.');

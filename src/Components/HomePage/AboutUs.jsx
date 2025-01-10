@@ -25,7 +25,7 @@ const AboutUs = () => {
             or simply enjoy the quiet ambiance, our library is the perfect place
             for you. Join us in our mission to promote knowledge and discovery!
           </p>
-          <button onClick={() => navigate("/about-library")} className="px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-500 transition">
+          <button onClick={() => navigate("/about-library")} className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded hover:bg-blue-700 transition">
             Learn More
           </button>
         </motion.div>
