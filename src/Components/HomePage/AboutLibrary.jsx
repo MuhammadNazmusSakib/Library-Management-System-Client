@@ -2,10 +2,11 @@ import React from "react";
 
 const AboutLibrary = () => {
   return (
-    <section className="mt-12 px-6 py-12 bg-white rounded shadow-md">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+    <section className="py-12 bg-gray-100 rounded shadow-md">
+      <div className="max-w-7xl px-3 md:px-6 lg:px-8 mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Left: Image */}
-        <div className="flex justify-center">
+        <div className="flex justify-center lg:justify-start">
           <img
             src="https://i.ibb.co.com/dQRXrcy/Cleveland-Public-Library-July-2018.jpg"
             alt="Library Interior"
@@ -45,6 +46,7 @@ const AboutLibrary = () => {
             loading="lazy"
           ></iframe>
         </div>
+      </div>
       </div>
     </section>
   );

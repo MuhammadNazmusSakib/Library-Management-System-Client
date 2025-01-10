@@ -58,7 +58,8 @@ const BorrowedBooks = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="bg-gray-100">
+      <div className='max-w-7xl mx-auto px-3 md:px-6 lg:px-8 py-8'>
       <h1 className="text-2xl font-bold text-center mb-6">My Borrowed Books</h1>
       {borrowedBooks.length === 0 ? (
         <div className='h-screen'>
@@ -67,7 +68,7 @@ const BorrowedBooks = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {borrowedBooks.map((book) => (
-            <div key={book.bookId} className="p-4 border flex flex-col justify-between rounded-lg shadow-md">
+            <div key={book.bookId} className="p-3 border flex flex-col justify-between rounded-lg shadow-md">
               <img
                 src={book.image}
                 alt={book.name}
@@ -95,6 +96,7 @@ const BorrowedBooks = () => {
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 };

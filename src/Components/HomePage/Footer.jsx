@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-      <footer className="bg-gray-900 text-gray-300 py-10">
-        <div className="container mx-auto px-4">
+      <footer className="bg-gray-700 text-white py-10">
+        <div className="max-w-7xl md:px-6 lg:px-8 mx-auto px-4">
           {/* Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Contact Info */}
@@ -18,7 +18,7 @@ const Footer = () => {
             </div>
   
             {/* Quick Links */}
-            <div>
+            <div className="justify-end">
               <h2 className="text-xl font-bold text-white mb-4">Quick Links</h2>
               <ul className="space-y-2">
                 <li>
@@ -40,16 +40,16 @@ const Footer = () => {
             <div>
               <h2 className="text-xl font-bold text-white mb-4">Follow Us</h2>
               <div className="flex space-x-4">
-                <a href="#" className="text-3xl text-gray-300 hover:text-blue-400">
+                <a href="#" className="text-3xl text-white hover:text-blue-400">
                    <FaSquareFacebook />
                 </a>
-                <a href="#" className="text-3xl text-gray-300 hover:text-blue-400">
+                <a href="#" className="text-3xl text-white hover:text-blue-400">
                 <FaSquareTwitter />
                 </a>
-                <a href="#" className="text-3xl text-gray-300 hover:text-blue-400">
+                <a href="#" className="text-3xl text-white hover:text-blue-400">
                 <FaSquareInstagram />
                 </a>
-                <a href="#" className="text-3xl text-gray-300 hover:text-blue-400">
+                <a href="#" className="text-3xl text-white hover:text-blue-400">
                 <GrLinkedin />
                 </a>
               </div>

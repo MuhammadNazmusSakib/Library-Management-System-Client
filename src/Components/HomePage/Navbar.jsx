@@ -20,9 +20,9 @@ const Navbar = () => {
 
     return (
 
-        <header >
+        <header className='sticky top-0 z-50 bg-gray-100'>
             <div className="shadow-md">
-                <div className="container mx-auto flex items-center justify-between px-4 py-4">
+                <div className="max-w-7xl md:px-6 lg:px-8 px-3 py-4 mx-auto flex items-center justify-between">
                     {/* Navbar Start: Logo */}
                     <div>
                         <Link to="/" className="text-2xl font-bold ">

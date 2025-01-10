@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 const AboutUs = () => {
   const navigate = useNavigate()
   return (
-    <section className="mt-12 px-6 py-12 bg-gray-100 rounded shadow-md">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+    <section className="py-12 bg-gray-100 rounded shadow-md">
+      <div className="max-w-7xl md:px-6 lg:px-8 px-3 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-3 items-center">
         {/* Left: Description */}
         <motion.div
-          className="space-y-6 sm:ml-6"
+          className="space-y-6"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -32,7 +32,7 @@ const AboutUs = () => {
 
         {/* Right: Image */}
         <motion.div
-          className="flex justify-center"
+          className="flex justify-center lg:justify-end"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -40,7 +40,7 @@ const AboutUs = () => {
           <img
             src="https://i.ibb.co.com/G0pSMcF/aboutUs.jpg"
             alt="Library Image"
-            className="w-full md:max-w-2xl lg:max-w-lg rounded shadow-lg"
+            className="rounded-lg shadow-lg w-full lg:max-w-xl"
           />
         </motion.div>
       </div>

@@ -9,29 +9,30 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
 const Banner = () => {
-    const slides = [
-      {
-        id: 1,
-        title: "Welcome to the Library",
-        description: "Explore a wide collection of books and resources.",
-        image: "https://i.ibb.co.com/BgJtmZ3/Welcome-to-the-Library.jpg",
-      },
-      {
-        id: 2,
-        title: "Easy Borrowing",
-        description: "Borrow and return books with just a few clicks.",
-        image: "https://i.ibb.co.com/4PS44L1/Easy-Borrowing.jpg",
-      },
-      {
-        id: 3,
-        title: "New Arrivals",
-        description: "Check out the latest additions to our collection.",
-        image: "https://i.ibb.co.com/BKhHF0V/New-Arrivals.jpg",
-      },
-    ];
-  
-    return (
-      <div className="banner w-full bg-gray-100">
+  const slides = [
+    {
+      id: 1,
+      title: "Welcome to the Library",
+      description: "Explore a wide collection of books and resources.",
+      image: "https://i.ibb.co.com/BgJtmZ3/Welcome-to-the-Library.jpg",
+    },
+    {
+      id: 2,
+      title: "Easy Borrowing",
+      description: "Borrow and return books with just a few clicks.",
+      image: "https://i.ibb.co.com/4PS44L1/Easy-Borrowing.jpg",
+    },
+    {
+      id: 3,
+      title: "New Arrivals",
+      description: "Check out the latest additions to our collection.",
+      image: "https://i.ibb.co.com/BKhHF0V/New-Arrivals.jpg",
+    },
+  ];
+
+  return (
+    <div className="bg-gray-100">
+      <div className='max-w-screen-2xl mx-auto banner w-full'>
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           navigation
@@ -57,8 +58,8 @@ const Banner = () => {
           ))}
         </Swiper>
       </div>
-    );
-  };
-  
-  export default Banner;
-  
+    </div>
+  );
+};
+
+export default Banner;

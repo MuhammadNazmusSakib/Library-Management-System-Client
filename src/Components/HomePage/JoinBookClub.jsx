@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 const JoinBookClub = () => {
 const navigate = useNavigate()
   return (
-    <section className="bg-gradient-to-r from-blue-50 to-blue-100 py-16 px-4 md:px-16">
-      <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center gap-8">
+    <section className="bg-gray-100 py-16">
+      <div className="max-w-7xl px-3 md:px-6 lg:px-8 mx-auto flex flex-col lg:flex-row items-center gap-8">
         {/* Left: Image */}
         <div className="w-full lg:w-1/2">
           <img

@@ -53,8 +53,9 @@ const AllBooks = () => {
     }
 
     return (
-        <div className="container mx-auto p-4 py-10">
-            <h1 className="text-2xl font-semibold text-center mb-4">All Books</h1>
+        <div className="bg-gray-100">
+            <div className='max-w-7xl md:px-6 lg:px-8 mx-auto px-4 py-10'>
+            <h1 className="text-4xl text-gray-700 font-extrabold text-center mb-4">All Books</h1>
             
             {/* Filter and View Toggle Section */}
             <div className="mb-4 md:flex items-center justify-between py-10">
@@ -148,6 +149,7 @@ const AllBooks = () => {
                     </table>
                 </div>
             )}
+            </div>
         </div>
     );
 };

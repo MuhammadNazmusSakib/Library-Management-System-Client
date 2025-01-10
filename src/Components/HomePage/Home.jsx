@@ -11,9 +11,9 @@ const Home = () => {
   return (
     <div>
         <Banner/>
-        <BookCategories/>
         <AboutUs/>
         <JoinBookClub/>
+        <BookCategories/>
     </div>
   )
 }
