@@ -13,7 +13,7 @@ const AboutUs = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold text-gray-800">About Us</h2>
+          <h2 className="text-4xl font-extrabold text-gray-800">About Us</h2>
           <p className="text-lg text-gray-700 leading-relaxed">
             Welcome to our library! We are dedicated to fostering a love for
             reading and learning in our community. With a vast collection of

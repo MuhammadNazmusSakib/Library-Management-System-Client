@@ -48,7 +48,7 @@ const Navbar = () => {
                         {
                             user ? (
                                 <>
-                                    {/* <Link to='my-profile'> */}
+                                    <Link to='my-profile/all-books'>
                                         <div className="relative group">
                                             <img
                                                 src={user?.photoURL}
@@ -56,11 +56,11 @@ const Navbar = () => {
                                                 className="w-10 h-10 rounded-full border border-white cursor-pointer"
                                             />
                                             {/* Display Name Tooltip */}
-                                            <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-gray-200 text-black text-sm rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            {/* <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-gray-200 text-black text-sm rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 {user?.displayName}
-                                            </div>
+                                            </div> */}
                                         </div>
-                                    {/* </Link> */}
+                                    </Link>
                                     <button onClick={logOut} className="btn text-sm font-medium bg-red-500 text-white ml-4 py-1 px-4 rounded-md hover:bg-red-600">
                                         LogOut
                                     </button>
@@ -111,13 +111,13 @@ const Navbar = () => {
                             <Link to="/" className="block  hover:text-blue-600">Home</Link>
                         </li>
                         <li>
-                            <Link to="/all-books" className="block  hover:text-blue-600">All Books</Link>
+                            <Link to="/my-profile/all-books" className="block  hover:text-blue-600">All Books</Link>
                         </li>
                         <li>
-                            <Link to="/add-book" className="block  hover:text-blue-600">Add Book</Link>
+                            <Link to="/my-profile/add-book" className="block  hover:text-blue-600">Add Book</Link>
                         </li>
                         <li>
-                            <Link to="/borrowed-books" className="block  hover:text-blue-600">Borrowed Books</Link>
+                            <Link to="/my-profile/borrowed-books" className="block  hover:text-blue-600">Borrowed Books</Link>
                         </li>
                         {
                             user ? (

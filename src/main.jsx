@@ -22,6 +22,7 @@ import BookDetails from './Components/PrivateRoute/PrivateRouteComponents/BookDe
 import ErrorPage from './ErrorPage/ErrorPage';
 import AboutLibrary from './Components/HomePage/AboutLibrary';
 import JoinPage from './Components/HomePage/JoinPage';
+import Profile from './Components/PrivateRoute/Profile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -54,17 +55,35 @@ const router = createBrowserRouter([
         element: <JoinPage/>
       },
       {
-        path: "/all-books",
-        element: <PrivateRoute><AllBooks/></PrivateRoute>
+        path: "my-profile",
+        element: <PrivateRoute><Profile/></PrivateRoute>,
+        children: [
+          {
+            path: "all-books",
+            element: <AllBooks/>
+          },
+          {
+            path: "add-book",
+            element: <AddBook />,
+          },
+          {
+            path: "borrowed-books",
+            element: <BorrowedBooks />,
+          },
+        ]
       },
-      {
-        path: "/add-book",
-        element: <PrivateRoute><AddBook/></PrivateRoute>
-      },
-      {
-        path: "/borrowed-books",
-        element: <PrivateRoute><BorrowedBooks/></PrivateRoute>
-      },
+      // {
+      //   path: "/all-books",
+      //   element: <PrivateRoute><AllBooks/></PrivateRoute>
+      // },
+      // {
+      //   path: "/add-book",
+      //   element: <PrivateRoute><AddBook/></PrivateRoute>
+      // },
+      // {
+      //   path: "/borrowed-books",
+      //   element: <PrivateRoute><BorrowedBooks/></PrivateRoute>
+      // },
       {
         path: "/update-book/:id",
         element: <PrivateRoute><UpdateBook/></PrivateRoute>

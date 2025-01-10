@@ -33,7 +33,7 @@ const AddBook = () => {
             .post('allBooks', book)
             .then(() => {
                 toast.success('Book added successfully!');
-                navigate('/all-books'); // Redirect to the all books page after successful submission
+                navigate('/my-profile/all-books'); // Redirect to the all books page after successful submission
             })
             .catch(() => {
                 toast.error('Failed to add book.');
@@ -42,7 +42,7 @@ const AddBook = () => {
 
     return (
         <div className="max-w-2xl mx-auto p-6 rounded-lg shadow-md border border-gray-300 mt-10 my-10">
-            <h1 className="text-3xl font-semibold text-center mb-6">Add New Book</h1>
+            <h1 className="text-3xl text-gray-700 font-extrabold text-center mb-6">Add New Book</h1>
             <form onSubmit={handleSubmit}>
                 {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-6"> */}
                     {/* Image URL */}
