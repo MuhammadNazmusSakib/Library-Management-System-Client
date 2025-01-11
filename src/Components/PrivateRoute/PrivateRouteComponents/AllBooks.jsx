@@ -13,7 +13,7 @@ const AllBooks = () => {
     const [filteredBooks, setFilteredBooks] = useState([]);
     const [view, setView] = useState('card');
     const [categories, setCategories] = useState([])
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState('all books')
     const [showAvailable, setShowAvailable] = useState(false);
     const [loading, setLoading] = useState(true)
     const axiosSecure = useAxiosSecure()
@@ -87,10 +87,10 @@ const AllBooks = () => {
             <div className='max-w-7xl md:px-6 lg:px-4 mx-auto px-4 py-10'>
                 <h1 className="text-4xl text-gray-700 font-extrabold text-center mb-4">All Books</h1>
 
-                {/* Filter and View Toggle Section */}
+                {/* Filter by category */}
                 <div className="mb-4 md:flex items-center justify-between py-10">
 
-                    <div>
+                    <div className='space-x-4 mb-4'>
                         <select
                             onChange={(e) => filterCategory(e.target.value)}
                             value={category}

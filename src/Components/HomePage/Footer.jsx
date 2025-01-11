@@ -25,13 +25,13 @@ const Footer = () => {
                   <Link to="/" className="hover:text-blue-400">Home</Link>
                 </li>
                 <li>
-                  <Link to="/all-books" className="hover:text-blue-400">All Books</Link>
+                  <Link to="/about-library" className="hover:text-blue-400">About</Link>
                 </li>
                 <li>
-                  <Link to="/borrowed-books" className="hover:text-blue-400">Borrowed Books</Link>
+                  <Link to="/contact" className="hover:text-blue-400">Contact</Link>
                 </li>
                 <li>
-                  <Link to="/" className="hover:text-blue-400">Contact Us</Link>
+                  <Link to="/join-book-club" className="hover:text-blue-400">Book Club</Link>
                 </li>
               </ul>
             </div>
