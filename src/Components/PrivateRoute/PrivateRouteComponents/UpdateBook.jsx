@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useDynamicTitle from '../../Hooks/useDynamicTitle';
+import { Contex } from '../../ContexApi/Contex';
 
 const UpdateBook = () => {
+    const {user} = useContext(Contex)
     useDynamicTitle("Update Book | Academia Library")
 
     const { id } = useParams();

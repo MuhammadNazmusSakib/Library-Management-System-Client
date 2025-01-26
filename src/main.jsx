@@ -26,12 +26,18 @@ import Profile from './Components/PrivateRoute/Profile/Profile';
 import UpdateBooks from './Components/PrivateRoute/PrivateRouteComponents/UpdateBooks';
 import Contact from './Components/Routes/Contact';
 import DiscoverProgramsList from './Components/Routes/DiscoverProgramsList';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
-    errorElement: <ErrorPage/>,
+    element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -47,31 +53,31 @@ const router = createBrowserRouter([
       },
       {
         path: "/books/:category",
-        element: <BooksByCategory/>
+        element: <BooksByCategory />
       },
       {
         path: "/about-library",
-        element: <AboutLibrary/>
+        element: <AboutLibrary />
       },
       {
         path: "/join-book-club",
-        element: <JoinPage/>
+        element: <JoinPage />
       },
       {
         path: "/contact",
-        element: <Contact/>
+        element: <Contact />
       },
       {
         path: "/discover-programs",
-        element: <DiscoverProgramsList/>
+        element: <DiscoverProgramsList />
       },
       {
         path: "my-profile",
-        element: <PrivateRoute><Profile/></PrivateRoute>,
+        element: <PrivateRoute><Profile /></PrivateRoute>,
         children: [
           {
             path: "all-books",
-            element: <AllBooks/>
+            element: <AllBooks />
           },
           {
             path: "add-book",
@@ -79,7 +85,7 @@ const router = createBrowserRouter([
           },
           {
             path: "update-books",
-            element: <UpdateBooks/>
+            element: <UpdateBooks />
           },
           {
             path: "borrowed-books",
@@ -87,25 +93,14 @@ const router = createBrowserRouter([
           },
         ]
       },
-      // {
-      //   path: "/all-books",
-      //   element: <PrivateRoute><AllBooks/></PrivateRoute>
-      // },
-      // {
-      //   path: "/add-book",
-      //   element: <PrivateRoute><AddBook/></PrivateRoute>
-      // },
-      // {
-      //   path: "/borrowed-books",
-      //   element: <PrivateRoute><BorrowedBooks/></PrivateRoute>
-      // },
+
       {
         path: "/update-book/:id",
-        element: <PrivateRoute><UpdateBook/></PrivateRoute>
+        element: <PrivateRoute><UpdateBook /></PrivateRoute>
       },
       {
         path: "/book/:id",
-        element: <PrivateRoute><BookDetails/></PrivateRoute>
+        element: <PrivateRoute><BookDetails /></PrivateRoute>
       },
     ]
   },
@@ -114,8 +109,10 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <DataProvider>
-      <ToastContainer />
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <ToastContainer />
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </DataProvider>
   </StrictMode>,
 )

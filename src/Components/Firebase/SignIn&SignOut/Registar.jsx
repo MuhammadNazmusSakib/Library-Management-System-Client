@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Contex } from "../../ContexApi/Contex";
 import { toast } from "react-toastify";
 import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
+import axios from "axios";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -45,15 +46,23 @@ const Register = () => {
         createNewUser(email, password)
             .then((result) => {
                 const user = result.user
+                setUser(user)
                 // Update the user's profile with displayName and photoURL
                 updateUserProfile({ displayName: name, photoURL: photo })
                     .then(() => {
-                        setUser({
-                            ...user,
-                            displayName: name,
-                            photoURL: photo,
-                        });
-
+                        const userInfo = {
+                            displayName: user.displayName,
+                            photoURL: user.photoURL,
+                            email: user.email,
+                            role: 'User'
+                        }
+                        axios.post('https://library-management-system-server-alpha.vercel.app/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('New user added.')
+                                }
+                            })
+                        
                         // Redirect to the intended page
                         const redirectPath = location.state?.from || "/";
                         navigate(redirectPath);
@@ -75,6 +84,18 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                const userInfo = {
+                    displayName: user.displayName,
+                    photoURL: user.photoURL,
+                    email: user.email,
+                    role: 'User'
+                }
+                axios.post('https://library-management-system-server-alpha.vercel.app/users', userInfo)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            console.log('New user added.')
+                        }
+                    })
 
                 const redirectPath = location.state?.from || "/";
                 navigate(redirectPath);

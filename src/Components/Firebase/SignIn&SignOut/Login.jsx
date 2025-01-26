@@ -4,6 +4,7 @@ import { Contex } from "../../ContexApi/Contex";
 
 import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 
 const Login = () => {
@@ -21,6 +22,19 @@ const Login = () => {
       .then((result) => {
         const user = result.user
         setUser(user)
+
+        const userInfo = {
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          email: user.email,
+          role: 'User'
+        }
+        axios.post('https://library-management-system-server-alpha.vercel.app/users', userInfo)
+          .then(res => {
+            if (res.data.insertedId) {
+              console.log('New user added.')
+            }
+          })
 
         const redirectPath = location.state?.from || "/"
         navigate(redirectPath)
@@ -120,7 +134,7 @@ const Login = () => {
               placeholder="Enter your email"
             />
           </div>
-          <div className="mb-4 relative">
+          <div className="mb-8 relative">
             <label
               htmlFor="password"
               className="block text-sm font-medium text-gray-700"
@@ -140,7 +154,7 @@ const Login = () => {
 
             </button>
           </div>
-          <div className="flex items-center justify-between mb-4">
+          {/* <div className="flex items-center justify-between mb-4">
             <label className="flex items-center">
               <input
                 type="checkbox"
@@ -155,7 +169,7 @@ const Login = () => {
             >
               Forgot your password?
             </button>
-          </div>
+          </div> */}
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600"
