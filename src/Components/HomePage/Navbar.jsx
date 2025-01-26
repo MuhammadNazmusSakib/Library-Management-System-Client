@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 // import logo from '../../assets/image/main-logo.png'
 import { Contex } from '../ContexApi/Contex';
 import { FcLibrary } from 'react-icons/fc';
+import useAdmin from '../Hooks/useAdmin';
 
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(Contex)
+    const [isAdmin] = useAdmin()
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -119,16 +121,22 @@ const Navbar = () => {
                         </li>
 
                         {
+                            isAdmin &&
+                            <>
+                                <li>
+                                    <Link to="/my-profile/add-book" className="block  hover:text-blue-600">Add Book</Link>
+                                </li>
+                                <li>
+                                    <Link to="/my-profile/update-books" className="block  hover:text-blue-600">Update Books</Link>
+                                </li>
+                            </>
+                        }
+
+                        {
                             user ? (
                                 <>
                                     <li>
                                         <Link to="/my-profile/all-books" className="block  hover:text-blue-600">All Books</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/my-profile/add-book" className="block  hover:text-blue-600">Add Book</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/my-profile/update-books" className="block  hover:text-blue-600">Update Books</Link>
                                     </li>
                                     <li>
                                         <Link to="/my-profile/borrowed-books" className="block  hover:text-blue-600">Borrowed Books</Link>

@@ -59,7 +59,7 @@ const Register = () => {
                         axios.post('https://library-management-system-server-alpha.vercel.app/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
-                                    console.log('New user added.')
+                                    //console.log('New user added.')
                                 }
                             })
                         
@@ -93,7 +93,7 @@ const Register = () => {
                 axios.post('https://library-management-system-server-alpha.vercel.app/users', userInfo)
                     .then(res => {
                         if (res.data.insertedId) {
-                            console.log('New user added.')
+                            //console.log('New user added.')
                         }
                     })
 
